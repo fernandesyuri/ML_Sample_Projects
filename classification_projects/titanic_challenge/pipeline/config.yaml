@@ -5,7 +5,7 @@
 
 app: titanic
 namespace: argo-workflows
-workflow_template: buildkit
+workflow-template: buildkit
 
 steps:
   pre-processing:
