@@ -13,7 +13,7 @@ steps:
     # Contain a python entrypoint script in /work
     # Read the dataset from /work/data/train.csv
     # Save resulting dataframe as pickle in /work/data/dataframe.pkl
-    image-name: titanic-training
+    image-name: fernandesyuri/titanic-training
     entrypoint: preprocessing.py
     build: false
     dockerfile: null
@@ -24,7 +24,7 @@ steps:
     # Read the dataframe from /work/data/dataframe.pkl
     # Save resulting dataframe as pickle overwriting /work/data/dataframe.pkl
     enabled: true
-    image-name: titanic-training
+    image-name: fernandesyuri/titanic-training
     entrypoint: feature-engineering.py
     build: false
     dockerfile: null
@@ -34,7 +34,7 @@ steps:
     # Contain a python entrypoint script in /work
     # Read the dataframe from /work/data/dataframe.pkl
     # Save model as pickle in /work/model/ with any name terminated by "_accuracy.pkl". Example: titanic_92.33.pkl
-    image-name: titanic-training
+    image-name: fernandesyuri/titanic-training
     entrypoint: training.py
     build: true
     dockerfile: training.dockerfile
@@ -45,7 +45,7 @@ steps:
     # Load the pickle model from /work/model/model.pkl
     # Read the dataset from /work/data/test.csv
     enabled: true
-    image-name: titanic-training
+    image-name: fernandesyuri/titanic-training
     entrypoint: test.py
     build: false
     dockerfile: null
@@ -55,7 +55,7 @@ steps:
     # Contain a python entrypoint script in /work
     # Load the pickle model from /work/model/model.pkl
     enabled: true
-    image-name: titanic-serve
+    image-name: fernandesyuri/titanic-serve
     entrypoint: serve.py
     build: true
     dockerfile: serve.dockerfile
