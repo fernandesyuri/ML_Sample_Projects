@@ -1,0 +1,61 @@
+# Configures the pipeline for this project. 
+# Pre-processing and training steps can't be disabled.
+# Do not rename any step or property.
+# You can choose to not build an image for a step and use the image of another step instead, but with a different entrypoint.
+
+app: titanic
+namespace: argo-workflows
+workflow_template: buildkit
+
+steps:
+  pre-processing:
+    # Requirements:
+    # Contain a python entrypoint script in /work
+    # Read the dataset from /work/data/train.csv
+    # Save resulting dataframe as pickle in /work/data/dataframe.pkl
+    image-name: titanic-training
+    entrypoint: preprocessing.py
+    build: false
+    dockerfile: null
+
+  feature-engineering:
+    # Requirements:
+    # Contain a python entrypoint script in /work
+    # Read the dataframe from /work/data/dataframe.pkl
+    # Save resulting dataframe as pickle overwriting /work/data/dataframe.pkl
+    enabled: true
+    image-name: titanic-training
+    entrypoint: feature-engineering.py
+    build: false
+    dockerfile: null
+
+  training:
+    # Requirements:
+    # Contain a python entrypoint script in /work
+    # Read the dataframe from /work/data/dataframe.pkl
+    # Save model as pickle in /work/model/ with any name terminated by "_accuracy.pkl". Example: titanic_92.33.pkl
+    image-name: titanic-training
+    entrypoint: training.py
+    build: true
+    dockerfile: training.dockerfile
+
+  test:
+    # Requirements:
+    # Contain a python entrypoint script in /work
+    # Load the pickle model from /work/model/model.pkl
+    # Read the dataset from /work/data/test.csv
+    enabled: true
+    image-name: titanic-training
+    entrypoint: test.py
+    build: false
+    dockerfile: null
+
+  serve:
+    # Requirements:
+    # Contain a python entrypoint script in /work
+    # Load the pickle model from /work/model/model.pkl
+    enabled: true
+    image-name: titanic-serve
+    entrypoint: serve.py
+    build: true
+    dockerfile: serve.dockerfile

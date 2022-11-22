@@ -20,6 +20,20 @@ def create_preprocessing_pipeline(dataset_path: str, drop_passenger_id: bool=Fal
 
     return df
 
+def create_preprocessing_pipeline_from_dict(dictionary: dict, drop_passenger_id: bool=False) -> pd.DataFrame:
+    df = pd.DataFrame.from_dict(dictionary)
+
+    if drop_passenger_id:
+        df = drop_unnecessary_columns(df, ['PassengerId'])
+
+    df = fill_empty_age_values(df)
+
+    df = fill_empty_embarked_values(df)
+
+    df = fill_empty_fare_values(df)
+
+    return df
+
 
 def create_feature_engineering_pipeline(df: pd.DataFrame) -> pd.DataFrame:
     df = create_deck_feature(df, False)
