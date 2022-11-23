@@ -12,4 +12,4 @@ RUN mkdir models
 
 WORKDIR /work/src
 
-ENTRYPOINT ["python", "main.py"]
+# ENTRYPOINT ["python", "main.py"]

@@ -18,6 +18,8 @@ steps:
     build: false
     dockerfile: null
 
+    raw-dataset-file-name: train.csv
+
   feature-engineering:
     # Requirements:
     # Contain a python entrypoint script in /work
