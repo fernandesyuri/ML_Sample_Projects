@@ -14,7 +14,7 @@ steps:
     # Read the dataset from /work/data/train.csv
     # Save resulting dataframe as pickle in /work/data/dataframe.pkl
     image-name: fernandesyuri/titanic-training
-    entrypoint: preprocessing.py
+    entrypoint: python src/preprocessing.py
     build: false
     dockerfile: null
 
