@@ -21,7 +21,7 @@ steps:
     bucket: dev-titanic-h0jm0arxomxvuwc3
     dataset-folder: data
     dataset-name: train.csv
-    oidc-audience: https://api-test-cluster-e1d00e4e142ee884.elb.us-east-1.amazonaws.com
+    oidc-audience: https://api-test-cluster-e0f6b22101e73b82.elb.us-east-1.amazonaws.com
     bucket-access-role-arn: arn:aws:iam::133412723156:role/test-cluster-dev-workflows-projects-data-bucket-access-role
 
   feature-engineering:
