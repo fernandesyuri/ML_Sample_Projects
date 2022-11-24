@@ -14,7 +14,7 @@ if args.input is None or args.output is None:
     print('Please provide input and output files')
     exit(1)
 
-os.chdir('../../..')
+os.chdir('../..')
 
 processed_df = create_preprocessing_pipeline(args.input, True)
 
