@@ -14,8 +14,6 @@ if args.input is None or args.output is None:
     print('Please provide input and output files')
     exit(1)
 
-# os.chdir('../..')
-
 processed_df = create_preprocessing_pipeline(args.input, True)
 
 pickle.dump(processed_df, open(args.output, 'wb'))
