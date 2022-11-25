@@ -20,8 +20,8 @@ steps:
 
     dataset-folder: data
     dataset-name: train.csv
-    bucket: dev-titanic-l5f570yzzo7js1ow
-    oidc-audience: https://api-test-cluster-e0f6b22101e73b82.elb.us-east-1.amazonaws.com
+    bucket: dev-titanic-kvwllq5voxtoyqbf
+    oidc-audience: https://api-test-cluster-5e33af9b3ba8749e.elb.us-east-1.amazonaws.com
     bucket-access-role-arn: arn:aws:iam::133412723156:role/test-cluster-dev-workflows-projects-data-bucket-access-role
 
   feature-engineering:
