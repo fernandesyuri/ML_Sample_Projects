@@ -57,7 +57,7 @@ steps:
     # Read the dataset from /work/data/test.csv
     enabled: true
     image-name: fernandesyuri/titanic-training
-    entrypoint: test.py
+    entrypoint: src/test.py
     build: false
     dockerfile: null
     s3:
@@ -71,7 +71,7 @@ steps:
     enabled: true
     image-name: fernandesyuri/titanic-serve
     entrypoint: serve.py
-    build: true
+    build: false
     dockerfile: serve.dockerfile
     environments-repo: git@github.com:fernandesyuri/environments.git
     values-file: dev/helm3/titanic.yaml
