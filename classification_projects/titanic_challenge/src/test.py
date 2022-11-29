@@ -1,9 +1,21 @@
+import argparse
 import pickle
+import pandas as pd
 import os
 from pipeline import prepare_submission
 from sklearn.tree import DecisionTreeClassifier
 
-os.chdir('../model')
+parser = argparse.ArgumentParser(description='Test')
+parser.add_argument('--input', type=str, help='Input CSV dataset')
+
+args = parser.parse_args()
+
+# Check if input and output were provided
+if args.input is None:
+    print('Please provide input CSV file')
+    exit(1)
+
+os.chdir('models')
 
 model_name = os.listdir('.')[0]
 

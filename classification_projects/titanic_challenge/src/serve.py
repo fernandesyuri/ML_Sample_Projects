@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from pipeline import create_preprocessing_pipeline_from_dict, create_feature_engineering_pipeline
 
 # Load the model
-os.chdir('../model')
+os.chdir('../models')
 model_name = os.listdir('.')[0]
 model: DecisionTreeClassifier = pickle.load(open(model_name, 'rb'))
 
