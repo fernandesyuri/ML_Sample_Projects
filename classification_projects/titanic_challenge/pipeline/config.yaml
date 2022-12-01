@@ -9,8 +9,8 @@ workflow-template: ml-pipeline
 
 # S3 config
 s3:
-  bucket: dev-titanic-yzv8dg89ov7m48oj
-  oidc-audience: https://api-test-cluster-da7882b18da375c6.elb.us-east-1.amazonaws.com
+  bucket: dev-titanic-efpgwr7u5grb0giz
+  oidc-audience: https://api-test-cluster-f77621b0f3027ec0.elb.us-east-1.amazonaws.com
   bucket-access-role-arn: arn:aws:iam::133412723156:role/test-cluster-dev-workflows-projects-data-bucket-access-role
 
 steps:
